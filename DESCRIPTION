@@ -1,0 +1,10 @@
+Package: PAFcontaminants
+Type: Package
+Title: Identify and remove contaminants
+Version: 0.1.0
+Authors@R: person("Roman", "Mylonas", email = "roman.mylonas@unil.ch",
+                  role = c("aut", "cre"))
+Description: Identify and remove contaminants based on a list from the PAF@UNIL.
+License: CC0
+Encoding: UTF-8
+LazyData: true
