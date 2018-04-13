@@ -8,7 +8,7 @@
 # - contaminants_term: from a list of terms created at the PAF
 # - contaminants_genes: from a list of gene names
 
-#' Transform kuravsky_more_contamin.txt into a long format.
+#' kuravsky_transform_long
 #'
 #' There are several protein IDs and Gene.names per line in a MaxQuant
 #' proteinGroups.txt file. We create a new line for every single protein Id.
@@ -16,7 +16,7 @@
 #' @param kuravsky_path Path to kuravsky_more_contamin.txt.
 #' @examples
 #' kuravsky_path <- "/Users/admin/Work/PAF/projects/SliceSILAC/latest/data/Kuravsky_7956_7999/kuravsky_more_contamin.txt"
-#' contaminants_kuravsky <- kuravsky_transform_long()
+#' contaminants_kuravsky <- kuravsky_transform_long(kuravsky_path)
 #' devtools::use_data(contaminants_kuravsky)
 kuravsky_transform_long <- function(kuravsky_path){
   kuravsky_df <- read.table(kuravsky_path, stringsAsFactors=FALSE,quote="\"", row.names=NULL,
@@ -33,15 +33,13 @@ kuravsky_transform_long <- function(kuravsky_path){
     protein_names <- strsplit(one_row$Protein.names, ";")[[1]]
     gene_names <- strsplit(one_row$Gene.names, ";")[[1]]
     for(k in 1:length(protein_ids)){
-
+      long_df <- rbind(long_df, data.frame(protein_ids[k], protein_names[k], gene_names[k]))
     }
   }
 
-  kuravsky_df_2
-
+  colnames(long_df) <- c("protein.ac", "protein.name", "gene.name")
+  long_df
 }
-
-
 
 #' Identify contaminants in a given vector of protein ACs.
 #'
@@ -54,5 +52,25 @@ kuravsky_transform_long <- function(kuravsky_path){
 #' contaminant_AC(c("A0AVF1", "Q9NZT1", "P02786"))
 #' @export
 contaminant_AC <- function(protein_ac){
+  data("contaminants_ac")
+  data("contaminants_kuravsky")
 
+  (protein_ac %in% contaminants_ac) | (protein_ac %in% contaminants_kuravsky$protein.ac)
 }
+
+#' Identify contaminants in a given vector of gene names
+#'
+#' Gives back a boolean for every given gene name, indicating if it is a
+#' contaminant or not.
+#'
+#' @param gene_name A vector of gene names.
+#' @return A vector indicating if it is a contaminant.
+#' @examples
+#' contaminant_gene(c("TFRC", "TGM1", "MTFR1"))
+#' @export
+contaminant_gene <- function(gene_names){
+  data("contaminants_kuravsky")
+
+  (gene_names %in% contaminants_kuravsky$gene.name)
+}
+

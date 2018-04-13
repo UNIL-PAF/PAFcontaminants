@@ -8,3 +8,5 @@ Description: Identify and remove contaminants based on a list from the PAF@UNIL.
 License: CC0
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.0.1
+Suggests: testthat
