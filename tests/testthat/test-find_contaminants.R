@@ -17,3 +17,8 @@ test_that("contaminant_gene finds correct entries", {
 })
 
 
+test_that("contaminant_term finds correct entries", {
+  expect_equal(contaminant_term(c("blibla", "blibla keratin blabla", "Keratinblibla", "kerami mouou")), c(FALSE, TRUE, TRUE, FALSE))
+})
+
+

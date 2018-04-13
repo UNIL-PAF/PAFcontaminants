@@ -8,6 +8,7 @@
 # - contaminants_term: from a list of terms created at the PAF
 # - contaminants_genes: from a list of gene names
 
+
 #' kuravsky_transform_long
 #'
 #' There are several protein IDs and Gene.names per line in a MaxQuant
@@ -41,7 +42,8 @@ kuravsky_transform_long <- function(kuravsky_path){
   long_df
 }
 
-#' Identify contaminants in a given vector of protein ACs.
+
+#' Identify contaminants by protein ACs
 #'
 #' Gives back a boolean for every given protein AC, indicating if it is a
 #' contaminant or not.
@@ -58,7 +60,8 @@ contaminant_AC <- function(protein_ac){
   (protein_ac %in% contaminants_ac) | (protein_ac %in% contaminants_kuravsky$protein.ac)
 }
 
-#' Identify contaminants in a given vector of gene names
+
+#' Identify contaminants by gene names
 #'
 #' Gives back a boolean for every given gene name, indicating if it is a
 #' contaminant or not.
@@ -74,3 +77,26 @@ contaminant_gene <- function(gene_names){
   (gene_names %in% contaminants_kuravsky$gene.name)
 }
 
+
+#' Identify contaminants by terms
+#'
+#' Gives back a boolean for every given term, indicating if it is a
+#' contaminant or not.
+#'
+#' @param protein_terms A vector of terms.
+#' @return A vector indicating if it is a contaminant.
+#' @examples
+#' contaminant_term(c("blibla", "blibla keratin blabla", "Keratinblibla", "kerami mouou"))
+#' @export
+contaminant_term <- function(protein_terms){
+  data("contaminants_term")
+
+  is_match_idx <- unlist(lapply(contaminants_term, function(ct){
+    grep(ct, protein_terms, ignore.case = TRUE)
+  }))
+
+  is_match <- rep(FALSE, length(protein_terms))
+  is_match[is_match_idx] <- TRUE
+
+  is_match
+}
