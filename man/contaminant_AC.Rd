@@ -2,7 +2,7 @@
 % Please edit documentation in R/find_contaminants.R
 \name{contaminant_AC}
 \alias{contaminant_AC}
-\title{Identify contaminants in a given vector of protein ACs.}
+\title{Identify contaminants by protein ACs}
 \usage{
 contaminant_AC(protein_ac)
 }

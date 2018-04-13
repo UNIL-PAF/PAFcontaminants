@@ -2,7 +2,7 @@
 % Please edit documentation in R/find_contaminants.R
 \name{contaminant_gene}
 \alias{contaminant_gene}
-\title{Identify contaminants in a given vector of gene names}
+\title{Identify contaminants by gene names}
 \usage{
 contaminant_gene(gene_names)
 }

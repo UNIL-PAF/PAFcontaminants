@@ -1,3 +1,4 @@
+#
 # find_contaminants
 # -------------------
 # identify contaminants based on protein AC's, gene names or descriptions
@@ -6,7 +7,6 @@
 # - contaminants_ac: from the internal list from PAF (contaminant_list.csv)
 # - contaminants_kuravsky: from proteins marked in Kuravsky_7956_7999/kuravsky_more_contamin.txt
 # - contaminants_term: from a list of terms created at the PAF
-# - contaminants_genes: from a list of gene names
 
 
 #' kuravsky_transform_long

@@ -2,7 +2,7 @@
 % Please edit documentation in R/find_contaminants.R
 \name{contaminant_term}
 \alias{contaminant_term}
-\title{Identify contaminants in a given vector of descriptions or terms}
+\title{Identify contaminants by terms}
 \usage{
 contaminant_term(protein_terms)
 }

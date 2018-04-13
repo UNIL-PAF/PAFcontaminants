@@ -3,3 +3,4 @@
 export(contaminant_AC)
 export(contaminant_gene)
 export(contaminant_term)
+export(contaminants_MQ)
