@@ -1,6 +1,5 @@
 context("Find contaminants")
 
-
 test_that("contaminant_AC finds correct entries", {
   expect_equal(contaminant_AC(c("A0AVF1", "Q9NZT1", "P02786")), c(FALSE, TRUE, FALSE))
   # check an entry only in contaminants_ac
