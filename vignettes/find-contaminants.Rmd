@@ -1,0 +1,33 @@
+---
+title: "Remove contaminants from proteomics experiments"
+author: "Roman Mylonas"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Find contaminants}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+At the [Protein Analysis Faciltiy](https://www.unil.ch/paf/en/home.html) of the [University of Lausanne](http://www.unil.ch/index.html) we have our internal list of contaminants. 
+
+Since it is a very common task to remove contaminants from MaxQuant outputs (*proteinGroups.txt*) we implemented a function to find the contaminants in a given file:
+
+    # load results from MQ
+    pg_path <- "/proteinGroups.txt"
+    pg <- read.table(proteinGroups_path, quote='\"', row.names=NULL, header=TRUE, sep='\t', fill=TRUE, na.strings=c('Non Num\303\251rique'))
+    
+    # remove contaminants
+    is_contaminant <-contaminants_MQ(pg)
+    pg_filtered <- pg[! is_contaminant,]
+    
+Alternatively you can find contaminants from a vector of either protein ACs, gene names or a given term (e.g. from a FASTA header):
+
+    # by protein AC
+    contaminant_AC(c("A0AVF1", "Q9NZT1", "P02786"))
+    
+    # by gene name
+    contaminant_gene(c("TFRC", "TGM1", "MTFR1"))
+    
+    # by term
+    contaminant_term(c("blibla", "blibla keratin blabla", "Keratinblibla", "kerami mouou"))
