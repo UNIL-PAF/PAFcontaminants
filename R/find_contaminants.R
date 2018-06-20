@@ -15,10 +15,12 @@
 #' proteinGroups.txt file. We create a new line for every single protein Id.
 #'
 #' @param kuravsky_path Path to kuravsky_more_contamin.txt.
-#' @examples
-#' kuravsky_path <- "/Users/admin/Work/PAF/projects/SliceSILAC/latest/data/Kuravsky_7956_7999/kuravsky_more_contamin.txt"
-#' contaminants_kuravsky <- kuravsky_transform_long(kuravsky_path)
-#' devtools::use_data(contaminants_kuravsky)
+
+# How this data was created:
+# kuravsky_path <- "/Users/admin/Work/PAF/projects/SliceSILAC/latest/data/Kuravsky_7956_7999/kuravsky_more_contamin.txt"
+# contaminants_kuravsky <- kuravsky_transform_long(kuravsky_path)
+# devtools::use_data(contaminants_kuravsky)
+
 kuravsky_transform_long <- function(kuravsky_path){
   kuravsky_df <- read.table(kuravsky_path, stringsAsFactors=FALSE,quote="\"", row.names=NULL,
                               header=TRUE, sep="\t", fill=TRUE, na.strings=c("Non Num\303\251rique"))
