@@ -54,8 +54,8 @@ kuravsky_transform_long <- function(kuravsky_path){
 #' contaminant_AC(c("A0AVF1", "Q9NZT1", "P02786"))
 #' @export
 contaminant_AC <- function(protein_ac){
-  data("contaminants_ac")
-  data("contaminants_kuravsky")
+  data("contaminants_ac", package="PAFcontaminants")
+  data("contaminants_kuravsky", package="PAFcontaminants")
 
   (protein_ac %in% contaminants_ac) | (protein_ac %in% contaminants_kuravsky$protein.ac)
 }
@@ -89,7 +89,7 @@ contaminant_gene <- function(gene_names){
 #' contaminant_term(c("blibla", "blibla keratin blabla", "Keratinblibla", "kerami mouou"))
 #' @export
 contaminant_term <- function(protein_terms){
-  data("contaminants_term")
+  data("contaminants_term", package="PAFcontaminants")
 
   is_match_idx <- unlist(lapply(contaminants_term, function(ct){
     grep(ct, protein_terms, ignore.case = TRUE)
