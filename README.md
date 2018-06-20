@@ -19,4 +19,3 @@ Look at the vignettes for more information about usage:
 ```R
 browseVignettes(package="PAFcontaminants")
 ```
-
