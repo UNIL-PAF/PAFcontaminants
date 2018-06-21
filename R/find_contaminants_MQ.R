@@ -13,8 +13,10 @@
 #'
 #' @param proteinGroups_df A data.frame from proteinGroups.txt
 #' @examples
-#' proteinGroups_path <- "Conde_9508_sub.txt"
-#' proteinGroups_df <- read.table(proteinGroups_path, quote='\"', row.names=NULL, header=TRUE, sep='\t', fill=TRUE, na.strings=c('Non Num\303\251rique'))
+#' data("Conde_9508_sub", package="PAFcontaminants")
+#' # in real life you load your data with a read.table:
+#' # proteinGroups_path <- "Conde_9508_sub.txt"
+#' # proteinGroups_df <- read.table(proteinGroups_path, quote='\"', row.names=NULL, header=TRUE, sep='\t', fill=TRUE, na.strings=c('Non Num\303\251rique'))
 #' is_contaminant <-contaminants_MQ(proteinGroups_df)
 #' @export
 contaminants_MQ <- function(proteinGroups_df){
