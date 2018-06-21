@@ -13,8 +13,3 @@ kuravsky_transform_long(kuravsky_path)
 There are several protein IDs and Gene.names per line in a MaxQuant
 proteinGroups.txt file. We create a new line for every single protein Id.
 }
-\examples{
-kuravsky_path <- "/Users/admin/Work/PAF/projects/SliceSILAC/latest/data/Kuravsky_7956_7999/kuravsky_more_contamin.txt"
-contaminants_kuravsky <- kuravsky_transform_long(kuravsky_path)
-devtools::use_data(contaminants_kuravsky)
-}

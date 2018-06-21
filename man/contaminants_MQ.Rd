@@ -13,7 +13,7 @@ contaminants_MQ(proteinGroups_df)
 Find all contaminants in a data.frame from MaxQuant proteinGroups.txt.
 }
 \examples{
-proteinGroups_path <- "/Users/admin/Work/PAF/projects/SliceSILAC/latest/data/Conde_9508/proteinGroups.txt"
+proteinGroups_path <- "Conde_9508_sub.txt"
 proteinGroups_df <- read.table(proteinGroups_path, quote='\\"', row.names=NULL, header=TRUE, sep='\\t', fill=TRUE, na.strings=c('Non Num\\303\\251rique'))
 is_contaminant <-contaminants_MQ(proteinGroups_df)
 }

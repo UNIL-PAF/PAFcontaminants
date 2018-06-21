@@ -14,7 +14,7 @@ At the [Protein Analysis Faciltiy](https://www.unil.ch/paf/en/home.html) of the 
 Since it is a very common task to remove contaminants from MaxQuant outputs (*proteinGroups.txt*) we implemented a function to find the contaminants in a given file:
 
     # load results from MQ
-    pg_path <- "/proteinGroups.txt"
+    pg_path <- "proteinGroups.txt"
     pg <- read.table(proteinGroups_path, quote='\"', row.names=NULL, header=TRUE, sep='\t', fill=TRUE, na.strings=c('Non Num\303\251rique'))
     
     # remove contaminants
