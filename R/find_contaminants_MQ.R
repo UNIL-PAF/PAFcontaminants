@@ -31,7 +31,12 @@ contaminants_MQ <- function(proteinGroups_df){
   # find by terms
   is_in_fasta <- contaminant_term(proteinGroups_df$Fasta.headers)
 
-  is_only_identified_by_site | is_reverse | is_MQ_contaminant | is_in_AC | is_in_fasta
+  is_contaminant <- is_only_identified_by_site | is_reverse | is_MQ_contaminant | is_in_AC | is_in_fasta
+
+  # replace NA's by FALSE
+  is_contaminant[is.na(is_contaminant)] <- FALSE
+
+  is_contaminant
 }
 
 
