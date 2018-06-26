@@ -1,4 +1,4 @@
-# PAFcontaminants
+# PAFcontaminants [![Build Status](https://travis-ci.org/UNIL-PAF/PAFcontaminants.svg?branch=master)](https://travis-ci.org/UNIL-PAF/PAFcontaminants)
 Find contaminants in proteomics experiments. You can easily filter *proteinGroups.txt* from MaxQuant using *PAFcontimants*.
 
 At the [Protein Analysis Faciltiy](https://www.unil.ch/paf/en/home.html) of the [University of Lausanne](http://www.unil.ch/index.html) we have our internal list of contaminants.
